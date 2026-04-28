@@ -1,40 +1,54 @@
 public class Produit {
 
-    private int id;
+    private String id;
     private String nom;
     private double prix;
     private int quantite;
 
-    public Produit(int id, String nom, double prix, int quantite) {
+
+    public Produit( String id, String nom, double prix, int quantite) {
+        this.id = id;
+        this.nom = nom;
+        this.prix = prix;
+        this.quantite = quantite;
     }
 
-    public int getId() {
-        return 0;
+    public String getId() {
+        return id;
     }
 
     public String getNom() {
-        return null;
+        return nom;
     }
 
     public double getPrix() {
-        return 0;
+        return prix;
     }
 
     public int getQuantite() {
-        return 0;
+        return quantite;
     }
 
+
+
     public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
+
 
     @Override
     public String toString() {
-        return "";
+        return "ID : " + id +
+                " | Nom : " + nom +
+                " | Prix : " + prix + " FCFA" +
+                " | Quantité : " + quantite;
     }
 }
