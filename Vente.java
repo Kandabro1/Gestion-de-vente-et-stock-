@@ -6,21 +6,25 @@ public class Vente {
     private double total;
 
     public Vente(Client client, Produit produit, int quantite) {
+        this.client = client;
+        this.produit = produit;
+        this.quantite = quantite;
+        this.total = produit.getPrix() * quantite;
     }
 
     public Client getClient() {
-        return null;
+        return client;
     }
 
     public Produit getProduit() {
-        return null;
+        return produit;
     }
 
     public int getQuantite() {
-        return 0;
+        return quantite;
     }
 
     public double getTotal() {
-        return 0;
+        return total;
     }
 }
