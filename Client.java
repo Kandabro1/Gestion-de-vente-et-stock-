@@ -1,14 +1,26 @@
 public class Client {
 
     private String nom;
+    private String telephone;
 
-    public Client(String nom) {
+    public Client(String nom, String telephone) {
+        this.nom = nom;
+        this.telephone = telephone;
     }
 
     public String getNom() {
-        return null;
+        return nom;
+    }
+
+    public String getTelephone() {
+        return telephone;
     }
 
     public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 }
