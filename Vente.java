@@ -35,6 +35,4 @@ public class Vente {
     public static void effectuerVente() {
     }
 
-    public static void genererFacture(Vente vente) {
-    }
 }
