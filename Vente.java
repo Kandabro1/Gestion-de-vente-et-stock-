@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Vente {
 
     private Client client;
@@ -26,5 +28,13 @@ public class Vente {
 
     public double getTotal() {
         return total;
+    }
+
+    static ArrayList<Vente> ventes = new ArrayList<>();
+
+    public static void effectuerVente() {
+    }
+
+    public static void genererFacture(Vente vente) {
     }
 }
