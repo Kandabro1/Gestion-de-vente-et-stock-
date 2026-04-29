@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Scanner;
 public class Produit {
 
     private String id;
@@ -50,5 +52,26 @@ public class Produit {
                 " | Nom : " + nom +
                 " | Prix : " + prix + " FCFA" +
                 " | Quantité : " + quantite;
+    }
+
+    //Methodes
+
+    static ArrayList<Produit> produits = new ArrayList<>();
+    static Scanner scanner = new Scanner(System.in);
+
+    public static void ajouterProduit() {
+    }
+
+    public static void modifierProduit() {
+    }
+
+    public static void supprimerProduit() {
+    }
+
+    public static void afficherProduits() {
+    }
+
+    public static Produit rechercherProduit(int id) {
+        return null;
     }
 }
