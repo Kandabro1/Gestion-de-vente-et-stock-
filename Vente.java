@@ -75,8 +75,4 @@ public class Vente {
         System.out.println("Total : " + vente.getTotal());
         System.out.println("Merci !\n");
     }
-
-    public void ajouterGrenouille() {
-        // methode vide
-    }
 }
