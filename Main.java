@@ -49,7 +49,7 @@ public class Main {
                     StockService.stockFaible();
                     break;
 
-                case 11:
+                case 9:
                     Vente.effectuerVente();
                     break;
 
