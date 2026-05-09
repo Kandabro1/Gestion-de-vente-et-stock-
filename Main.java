@@ -81,7 +81,7 @@ public class Main {
         System.out.println("7. Vérifier le stock disponible");
         System.out.println("8. Produits en rupture / stock faible");
         System.out.println("----------------------------------------");
-        System.out.println("11. Effectuer une vente");
+        System.out.println("9. Effectuer une vente");
         System.out.println("----------------------------------------");
         System.out.println("0. Quitter");
         System.out.println("========================================");
