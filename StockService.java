@@ -5,107 +5,114 @@ public class StockService {
 
     static Scanner scanner = new Scanner(System.in);
 
-    /**
-     * Option 5 : Entree en stock
-     */
+    // Option 5 : Entrée en stock
     public static void entreeStock() {
-        System.out.print("ID du produit : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
 
-        Produit p = ProduitService.rechercherProduit(id);
+        System.out.print("ID du produit : ");
+        String id = scanner.nextLine();
+
+        Produit p = Produit.rechercherProduit(id);
 
         if (p == null) {
             System.out.println("Erreur : Produit introuvable !");
             return;
         }
 
-        System.out.print("Quantite a ajouter : ");
+        System.out.print("Quantité à ajouter : ");
         int qte = scanner.nextInt();
         scanner.nextLine();
 
         if (qte <= 0) {
-            System.out.println("Erreur : La quantite doit etre positive !");
+            System.out.println("Erreur : La quantité doit être positive !");
             return;
         }
 
         p.setQuantite(p.getQuantite() + qte);
-        System.out.println("Entree en stock effectuee. Nouveau stock : " + p.getQuantite());
+
+        System.out.println("Entrée en stock effectuée.");
+        System.out.println("Nouveau stock de " + p.getNom() + " : " + p.getQuantite());
     }
 
-    /**
-     * Option 6 : Sortie de stock
-     */
+    // Option 6 : Sortie de stock
     public static void sortieStock() {
-        System.out.print("ID du produit : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
 
-        Produit p = ProduitService.rechercherProduit(id);
+        System.out.print("ID du produit : ");
+        String id = scanner.nextLine();
+
+        Produit p = Produit.rechercherProduit(id);
 
         if (p == null) {
             System.out.println("Erreur : Produit introuvable !");
             return;
         }
 
-        System.out.print("Quantite a retirer : ");
+        System.out.print("Quantité à retirer : ");
         int qte = scanner.nextInt();
         scanner.nextLine();
 
         if (qte <= 0) {
-            System.out.println("Erreur : La quantite doit etre positive !");
+            System.out.println("Erreur : La quantité doit être positive !");
             return;
         }
 
-        if (p.getQuantite() >= qte) {
-            p.setQuantite(p.getQuantite() - qte);
-            System.out.println("Sortie de stock effectuee. Nouveau stock : " + p.getQuantite());
-        } else {
-            System.out.println("Erreur : Stock insuffisant ! Stock actuel : " + p.getQuantite());
+        if (p.getQuantite() < qte) {
+            System.out.println("Erreur : Stock insuffisant !");
+            System.out.println("Stock actuel : " + p.getQuantite());
+            return;
         }
+
+        p.setQuantite(p.getQuantite() - qte);
+
+        System.out.println("Sortie de stock effectuée.");
+        System.out.println("Nouveau stock de " + p.getNom() + " : " + p.getQuantite());
     }
 
-    /**
-     * Option 7 : Verifier le stock d'un produit
-     */
+    // Option 7 : Vérifier le stock
     public static void verifierStock() {
-        System.out.print("ID du produit : ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
 
-        Produit p = ProduitService.rechercherProduit(id);
+        System.out.print("ID du produit : ");
+        String id = scanner.nextLine();
+
+        Produit p = Produit.rechercherProduit(id);
 
         if (p == null) {
             System.out.println("Erreur : Produit introuvable !");
-        } else {
-            System.out.println("Stock de " + p.getNom() + " : " + p.getQuantite() + " unites");
+            return;
         }
+
+        System.out.println("Produit : " + p.getNom());
+        System.out.println("Stock disponible : " + p.getQuantite());
     }
 
-    /**
-     * Option 8 : Produits en stock faible
-     */
+    // Option 8 : Produits en stock faible
     public static void stockFaible() {
-        System.out.print("Seuil de stock (exemple : 5) : ");
+
+        System.out.print("Seuil de stock : ");
         int seuil = scanner.nextInt();
         scanner.nextLine();
 
-        ArrayList<Produit> produits = ProduitService.produits;
+        ArrayList<Produit> produits = Produit.produits;
 
-        System.out.println("\nProduits avec stock < " + seuil + " :");
-        System.out.println("----------------------------------------");
         boolean trouve = false;
 
+        System.out.println("\n=== PRODUITS EN STOCK FAIBLE ===");
+
         for (Produit p : produits) {
+
             if (p.getQuantite() < seuil) {
-                System.out.println("   - " + p.getNom() + " (stock : " + p.getQuantite() + ")");
+
+                System.out.println(
+                    "ID : " + p.getId() +
+                    " | Nom : " + p.getNom() +
+                    " | Stock : " + p.getQuantite()
+                );
+
                 trouve = true;
             }
         }
 
         if (!trouve) {
-            System.out.println("Aucun produit sous le seuil");
+            System.out.println("Aucun produit sous le seuil.");
         }
-        System.out.println("----------------------------------------");
     }
 }
